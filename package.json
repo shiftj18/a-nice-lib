@@ -4,6 +4,11 @@
   "version": "1.1.0",
   "main": "lib/index.js",
   "module": "esm/index.js",
+  "files": [
+    "lib",
+    "esm",
+    "dist"
+  ],
   "scripts": {
     "eslint": "eslint src/** --fix",
     "build": "npm run build:dist & npm run build:esm & npm run build:lib",
