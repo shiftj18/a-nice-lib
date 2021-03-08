@@ -1,5 +1,7 @@
 {
   "name": "a-nice-lib",
+  "description": "awesome lib",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "scripts": {
@@ -9,8 +11,10 @@
     "build:esm": "del esm && PRESET_ENV_MODULES=esm babel src --out-dir esm",
     "build:lib": "del lib && babel src --out-dir lib",
     "test": "jest --coverage",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "commit": "git add . -A && cz"
   },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^7.21.0",
     "rollup": "^2.33.3",
@@ -23,7 +27,38 @@
     "@babel/preset-env": "^7.12.1",
     "del-cli": "^3.0.1",
     "jest": "^26.6.3",
-    "coveralls": "^3.1.0"
+    "coveralls": "^3.1.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/cli": "^11.0.0",
+    "commitizen": "^4.2.2",
+    "husky": "^4.3.0"
   },
-  "license": "MIT"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiftj18/a-nice-lib.git"
+  },
+  "keywords": [
+    "lib",
+    "test",
+    "coverage",
+    "ci",
+    "commit",
+    "publish"
+  ],
+  "author": "shiftj18",
+  "bugs": {
+    "url": "https://github.com/shiftj18/a-nice-lib/issues"
+  },
+  "homepage": "https://github.com/shiftj18/a-nice-lib#readme"
 }
